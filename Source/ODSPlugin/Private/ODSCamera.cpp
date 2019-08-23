@@ -107,6 +107,7 @@ void AODSCamera::Tick(float DeltaTime)
 	}
 }
 
+
 void AODSCamera::GetComponentSteps(int32 Step, int32& YawStep, int32& PitchStep)
 {
 	YawStep= Step / PitchStepCount;
@@ -134,6 +135,8 @@ void AODSCamera::BuildCaptureArray()
 		RightCaptureComponentArray.Add(BuildCaptureComponent(YawStep, PitchStep, FString("Right")));
 	}
 }
+
+
 FString AODSCamera::WriteStitcherLine(FRotator Rotation, int32 YawStep, int32 PitchStep)
 {
 	// Format Filename
