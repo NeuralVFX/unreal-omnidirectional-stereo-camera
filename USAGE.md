@@ -79,6 +79,8 @@ python stitcher.py --stitcher C:/PTStitcher/PTStitcherNG.exe --outdir C:/Output/
 - This will loop through every frame of both eyes and generate final images
 
 ## Stitch A Panorama Still
-
-`C:\PTStitcher\PTStitcherNG.exe -f RenderTest.00100.txt -o RenderTest.00100.tif`
+```
+cd Output
+C:\PTStitcher\PTStitcherNG.exe -f RenderTest.00100.txt -o RenderTest.00100.tif
+```
 - This should give you a stitched single eye output
