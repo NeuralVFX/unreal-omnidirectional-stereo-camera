@@ -54,7 +54,7 @@
 ## Stitch A Panorama Sequence
 
 - Go to the [PTStitcher website](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG.html) and download StitcherNG: [download link](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG0.7b.zip) 
-- Withinn the `Left` and `Right` folders you will find a sequence of`.TXT` files which look like this:
+- Within the `Left` and `Right` output folders you will find a sequence of `.TXT` files which look like this:
 ```
 p f2 w4096 h2048 v360  n"TIFF"
 o f0 w720 h720 n"RenderTest_000_000.00100.png" r180.000000 p108.000000 y0.000000 v50.000000
