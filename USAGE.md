@@ -26,7 +26,7 @@
 
 ## Stitch Panorama
 
-- Go to the [PTStitcher website](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/) and download StitcherNG: [download link](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG0.7b.zip) 
+- Go to the [PTStitcher website](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG.html) and download StitcherNG: [download link](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG0.7b.zip) 
 - Check in the Left or Right folder underneath your Output Folder, you will find a sequencer of `.TXT` files which look like this:
 ```
 p f2 w4096 h2048 v360  n"TIFF"
