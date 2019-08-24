@@ -72,8 +72,12 @@ o f0 w720 h720 n"RenderTest_002_001.00100.png" r180.000000 p144.000000 y72.00000
 ```
 
 - In order to convert the whole sequence into a panorama, find the script called `util/stitcher.py`
-- Replace the `render_dir` and `stitcher_path` variables, this will loop through and create all the images from the left and right eyes
-
+### Use the Stitcher Script
+```
+cd util
+python stitcher.py --stitcher C:/PTStitcher/PTStitcherNG.exe --outdir C:/Output/
+```
+- This will loop through every frame of both eyes and generate final images
 
 ## Stitch A Panorama Still
 
