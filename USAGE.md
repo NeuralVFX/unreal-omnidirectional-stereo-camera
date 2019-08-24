@@ -80,7 +80,7 @@ python stitcher.py --stitcher C:/PTStitcher/PTStitcherNG.exe --outdir C:/Output/
 
 ## Stitch A Panorama Still
 ```
-cd Output
-C:\PTStitcher\PTStitcherNG.exe -f RenderTest.00100.txt -o RenderTest.00100.tif
+cd Output/Left
+C:/PTStitcher/PTStitcherNG.exe -f RenderTest.00100.txt -o RenderTest.00100.tif
 ```
 - This should give you a stitched single eye output
