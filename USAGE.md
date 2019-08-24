@@ -24,29 +24,6 @@
 - Play the level!
 - No need to setup anything to play your sequencer, the sequencer selected in the node will play automatically when you play the level
 
-## Stitch Panorama
-
-- Go to the [PTStitcher website](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG.html) and download StitcherNG: [download link](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG0.7b.zip) 
-- Check in the Left or Right folder underneath your Output Folder, you will find a sequencer of `.TXT` files which look like this:
-```
-p f2 w4096 h2048 v360  n"TIFF"
-o f0 w720 h720 n"RenderTest_000_000.00100.png" r180.000000 p108.000000 y0.000000 v50.000000
-o f0 w720 h720 n"RenderTest_000_001.00100.png" r180.000000 p144.000000 y0.000000 v50.000000
-o f0 w720 h720 n"RenderTest_000_002.00100.png" r180.000000 p180.000000 y0.000000 v50.000000
-o f0 w720 h720 n"RenderTest_000_003.00100.png" r180.000000 p-144.000000 y0.000000 v50.000000
-o f0 w720 h720 n"RenderTest_000_004.00100.png" r180.000000 p-108.000000 y0.000000 v50.000000
-o f0 w720 h720 n"RenderTest_001_000.00100.png" r180.000000 p108.000000 y36.000000 v50.000000
-o f0 w720 h720 n"RenderTest_001_001.00100.png" r180.000000 p144.000000 y36.000000 v50.000000
-o f0 w720 h720 n"RenderTest_001_002.00100.png" r180.000000 p180.000000 y36.000000 v50.000000
-o f0 w720 h720 n"RenderTest_001_003.00100.png" r180.000000 p-144.000000 y36.000000 v50.000000
-o f0 w720 h720 n"RenderTest_001_004.00100.png" r180.000000 p-108.000000 y36.000000 v50.000000
-o f0 w720 h720 n"RenderTest_002_000.00100.png" r180.000000 p108.000000 y72.000000 v50.000000
-o f0 w720 h720 n"RenderTest_002_001.00100.png" r180.000000 p144.000000 y72.000000 v50.000000
-```
-- Run PTStitcher on this file
-`C:\PTStitcher\PTStitcherNG.exe -f RenderTest.00100.txt -o RenderTest.00100.tif`
-- This should give you a stitched single eye output
-
 ## ODSCamera Attributes
 
 ### Frame Range
@@ -73,3 +50,32 @@ o f0 w720 h720 n"RenderTest_002_001.00100.png" r180.000000 p144.000000 y72.00000
 ```
 --Level Sequencer, default=None, type=LevelSequencer           # Which Level Sequencer to play, also fixed framerate is set based on this
 ```
+
+## Stitch A Panorama Sequence
+
+- Go to the [PTStitcher website](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG.html) and download StitcherNG: [download link](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG0.7b.zip) 
+- Withinn the `Left` and `Right` folders you will find a sequence of`.TXT` files which look like this:
+```
+p f2 w4096 h2048 v360  n"TIFF"
+o f0 w720 h720 n"RenderTest_000_000.00100.png" r180.000000 p108.000000 y0.000000 v50.000000
+o f0 w720 h720 n"RenderTest_000_001.00100.png" r180.000000 p144.000000 y0.000000 v50.000000
+o f0 w720 h720 n"RenderTest_000_002.00100.png" r180.000000 p180.000000 y0.000000 v50.000000
+o f0 w720 h720 n"RenderTest_000_003.00100.png" r180.000000 p-144.000000 y0.000000 v50.000000
+o f0 w720 h720 n"RenderTest_000_004.00100.png" r180.000000 p-108.000000 y0.000000 v50.000000
+o f0 w720 h720 n"RenderTest_001_000.00100.png" r180.000000 p108.000000 y36.000000 v50.000000
+o f0 w720 h720 n"RenderTest_001_001.00100.png" r180.000000 p144.000000 y36.000000 v50.000000
+o f0 w720 h720 n"RenderTest_001_002.00100.png" r180.000000 p180.000000 y36.000000 v50.000000
+o f0 w720 h720 n"RenderTest_001_003.00100.png" r180.000000 p-144.000000 y36.000000 v50.000000
+o f0 w720 h720 n"RenderTest_001_004.00100.png" r180.000000 p-108.000000 y36.000000 v50.000000
+o f0 w720 h720 n"RenderTest_002_000.00100.png" r180.000000 p108.000000 y72.000000 v50.000000
+o f0 w720 h720 n"RenderTest_002_001.00100.png" r180.000000 p144.000000 y72.000000 v50.000000
+```
+
+- In order to convert the whole sequence into a panorama, find the script called `util/stitcher.py`
+- Replace the `render_dir` and `stitcher_path` variables, this will loop through and create all the images from the left and right eyes
+
+
+## Stitch A Panorama Still
+
+`C:\PTStitcher\PTStitcherNG.exe -f RenderTest.00100.txt -o RenderTest.00100.tif`
+- This should give you a stitched single eye output
