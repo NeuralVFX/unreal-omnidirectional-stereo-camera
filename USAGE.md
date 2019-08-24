@@ -24,6 +24,40 @@
 - Play the level!
 - No need to setup anything to play your sequencer, the sequencer selected in the node will play automatically when you play the level
 
+- When the render is done, within the `Left` and `Right` output folders you will find a sequence of `.TXT` files which look like this:
+```
+p f2 w4096 h2048 v360  n"TIFF"
+o f0 w720 h720 n"RenderTest_000_000.00100.png" r180.000000 p108.000000 y0.000000 v50.000000
+o f0 w720 h720 n"RenderTest_000_001.00100.png" r180.000000 p144.000000 y0.000000 v50.000000
+o f0 w720 h720 n"RenderTest_000_002.00100.png" r180.000000 p180.000000 y0.000000 v50.000000
+o f0 w720 h720 n"RenderTest_000_003.00100.png" r180.000000 p-144.000000 y0.000000 v50.000000
+o f0 w720 h720 n"RenderTest_000_004.00100.png" r180.000000 p-108.000000 y0.000000 v50.000000
+o f0 w720 h720 n"RenderTest_001_000.00100.png" r180.000000 p108.000000 y36.000000 v50.000000
+o f0 w720 h720 n"RenderTest_001_001.00100.png" r180.000000 p144.000000 y36.000000 v50.000000
+o f0 w720 h720 n"RenderTest_001_002.00100.png" r180.000000 p180.000000 y36.000000 v50.000000
+o f0 w720 h720 n"RenderTest_001_003.00100.png" r180.000000 p-144.000000 y36.000000 v50.000000
+o f0 w720 h720 n"RenderTest_001_004.00100.png" r180.000000 p-108.000000 y36.000000 v50.000000
+o f0 w720 h720 n"RenderTest_002_000.00100.png" r180.000000 p108.000000 y72.000000 v50.000000
+o f0 w720 h720 n"RenderTest_002_001.00100.png" r180.000000 p144.000000 y72.000000 v50.000000
+```
+
+## Stitch A Panorama Sequence
+
+- Go to the [PTStitcher website](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG.html) and download StitcherNG: [download link](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG0.7b.zip) 
+- In order to convert the whole sequence into a panorama, find the script called `util/stitcher.py` and use it like so:
+```
+cd util
+python stitcher.py --stitcher C:/PTStitcher/PTStitcherNG.exe --outdir C:/Output/
+```
+- This will loop through every frame of both eyes and generate final images
+
+## Stitch A Panorama Still
+```
+cd Output/Left
+C:/PTStitcher/PTStitcherNG.exe -f RenderTest.00100.txt -o RenderTest.00100.tif
+```
+- This should give you a stitched single eye output
+
 ## ODSCamera Attributes
 
 ### Frame Range
@@ -50,37 +84,3 @@
 ```
 --Level Sequencer, default=None, type=LevelSequencer           # Which Level Sequencer to play, also fixed framerate is set based on this
 ```
-
-## Stitch A Panorama Sequence
-
-- Go to the [PTStitcher website](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG.html) and download StitcherNG: [download link](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG0.7b.zip) 
-- Within the `Left` and `Right` output folders you will find a sequence of `.TXT` files which look like this:
-```
-p f2 w4096 h2048 v360  n"TIFF"
-o f0 w720 h720 n"RenderTest_000_000.00100.png" r180.000000 p108.000000 y0.000000 v50.000000
-o f0 w720 h720 n"RenderTest_000_001.00100.png" r180.000000 p144.000000 y0.000000 v50.000000
-o f0 w720 h720 n"RenderTest_000_002.00100.png" r180.000000 p180.000000 y0.000000 v50.000000
-o f0 w720 h720 n"RenderTest_000_003.00100.png" r180.000000 p-144.000000 y0.000000 v50.000000
-o f0 w720 h720 n"RenderTest_000_004.00100.png" r180.000000 p-108.000000 y0.000000 v50.000000
-o f0 w720 h720 n"RenderTest_001_000.00100.png" r180.000000 p108.000000 y36.000000 v50.000000
-o f0 w720 h720 n"RenderTest_001_001.00100.png" r180.000000 p144.000000 y36.000000 v50.000000
-o f0 w720 h720 n"RenderTest_001_002.00100.png" r180.000000 p180.000000 y36.000000 v50.000000
-o f0 w720 h720 n"RenderTest_001_003.00100.png" r180.000000 p-144.000000 y36.000000 v50.000000
-o f0 w720 h720 n"RenderTest_001_004.00100.png" r180.000000 p-108.000000 y36.000000 v50.000000
-o f0 w720 h720 n"RenderTest_002_000.00100.png" r180.000000 p108.000000 y72.000000 v50.000000
-o f0 w720 h720 n"RenderTest_002_001.00100.png" r180.000000 p144.000000 y72.000000 v50.000000
-```
-
-- In order to convert the whole sequence into a panorama, find the script called `util/stitcher.py` and use it like so:
-```
-cd util
-python stitcher.py --stitcher C:/PTStitcher/PTStitcherNG.exe --outdir C:/Output/
-```
-- This will loop through every frame of both eyes and generate final images
-
-## Stitch A Panorama Still
-```
-cd Output/Left
-C:/PTStitcher/PTStitcherNG.exe -f RenderTest.00100.txt -o RenderTest.00100.tif
-```
-- This should give you a stitched single eye output
