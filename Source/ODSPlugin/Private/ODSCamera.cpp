@@ -25,6 +25,7 @@ AODSCamera::AODSCamera(const FObjectInitializer& ObjectInitializer) : Super(Obje
 	AngleIncrement = 36.f;
 
 	InterocularDistance = 6.2f;
+	bInterocularVerticalFade = false;
 
 	OutResolutionWidth = 4096;
 	OutputDir = "C:/Output/";
@@ -83,7 +84,7 @@ void AODSCamera::Tick(float DeltaTime)
 		float Time = LevelSequencer->SequencePlayer->GetCurrentTime().AsSeconds();
 		CurrentFrame = (int32)(Time*(float)FrameRate);
 
-		// If Timm Within Render Range, Render
+		// If Time Within Render Range, Render
 		if (CurrentFrame >= StartFrame && CurrentFrame <= EndFrame)
 		{
 			// Loop Through Every Capture Component and Render
@@ -117,7 +118,7 @@ void AODSCamera::GetComponentSteps(int32 Step, int32& YawStep, int32& PitchStep)
 
 void AODSCamera::BuildCaptureArray()
 {
-	// Determin How Many Components We Need
+	// Determine How Many Components We Need
 	YawStepCount = (int32)(360.0f / AngleIncrement);
 	PitchStepCount = (int32)(180.0f / AngleIncrement);
 	TotalSteps = YawStepCount * PitchStepCount;
@@ -141,7 +142,7 @@ FString AODSCamera::WriteStitcherLine(FRotator Rotation, int32 YawStep, int32 Pi
 {
 	// Format Filename
 	FString FileString = FString::Printf(TEXT("%s_%03d_%03d.$FRAMECOUNT$.png"), *OutputName, YawStep, PitchStep);
-	// Format all of the arguments required to add an image to a PtStitcher file
+	// Format All of the Arguments Required to Add an Image to a PTStitcher TXT file
 	TArray< FStringFormatArg > args;
 	args.Add(FStringFormatArg(180 - Rotation.Roll));
 	args.Add(FStringFormatArg(Rotation.Yaw - 180));
@@ -191,13 +192,20 @@ USceneCaptureComponent2D* AODSCamera::BuildCaptureComponent(int32 YawStep, int32
 	CaptureComponent->AttachTo(GetRootComponent());
 
 	// Setup Rotation
-	FRotator Rotation = FRotator((90.0f - (.5f*AngleIncrement)) - 1.0f * PitchStep * AngleIncrement, 180.0f + YawStep* AngleIncrement, 0);
+	FRotator Rotation = FRotator((90.0f - (.5f*AngleIncrement)) - 1.0f * PitchStep * AngleIncrement, 180.0f + YawStep * AngleIncrement, 0);
 	Rotation = Rotation.Clamp();
 	FVector Offset(0.0f, InterocularDistance / 2.0f, 0.0f);
 
+	float InterocularDistMult = 1.f;
+
 	// Setup Stereo Offset, Fading to Zero At Top and Bottom
-	float InterocularDistMult = (fabs(180.f - Rotation.Pitch) - 90.f) / 90.f;
+	if (bInterocularVerticalFade)
+	{
+		InterocularDistMult = (fabs(180.f - Rotation.Pitch) - 90.f) / 90.f;
+	}
+	// Rotate Offset Vector
 	Offset = Rotation.RotateVector(Offset * InterocularDistMult);
+
 	float OffsetMult = 1.f;
 	if (Eye == "Left")
 	{

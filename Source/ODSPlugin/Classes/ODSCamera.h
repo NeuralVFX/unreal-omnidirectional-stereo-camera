@@ -45,6 +45,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stereo Settings")
 	float InterocularDistance;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Stereo Settings")
+	bool bInterocularVerticalFade;
+
 	/** Output File Path Information */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Output Settings")
 	FString OutputDir;
