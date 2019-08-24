@@ -1,4 +1,4 @@
-![](Images/example_b.jpg)
+![](Images/example_c.jpg)
 # Unreal-Omnidirectional-Stereo-Camera
 
 This plugin adds a new Camera Class to Unreal which can be used to render Omnidirectional Stereo Sequences. 
