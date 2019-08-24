@@ -7,10 +7,10 @@
 - Clone this Repo into the plugins folder (Or download the zip file and unzip there)
 - Right click your `.uproject` file and click `Generate Visual Studio Project Files`
 - Compile the project from Visual Studio
-- From Edit->Plugins, locate the "Installed" Tab
+- From `Edit->Plugins`, locate the `Installed` Tab
 - Find  `Omni-Directional Stereo Camera` and click `Enable`
 
-![](Images/plugin.jpg)
+![](Images/plugin_a.jpg)
 ## Scene Setup
 
 - In the Content Manager, navigate to ODSPlugin C++ `Classes->ODSPlugin->Classes`
@@ -19,7 +19,7 @@
 - Apply any camera animation you want within this level sequencer
 - In the attributes of the ODSCamera, set the `Frame Range`, `Output Settings`, and `Stereo Settings` to your needs
 
-![](Images/attributes.jpg)
+![](Images/attributes_a.jpg)
 
 - Play the level!
 - No need to setup anything to play your sequencer, the sequencer selected in the node will play automatically when you play the level
