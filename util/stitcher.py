@@ -22,10 +22,10 @@ for eye in eyes:
 
     if txt_list:
         os.chdir('%s%s/' % (render_dir, eye))
-        for txt in txt_list[:2]:
+        for txt in txt_list:
             txt_file = os.path.basename(txt)
             tif_file = txt_file.replace('txt', 'tif')
             command = "%s -f %s -o %s" % (stitcher_path, txt_file, tif_file)
             if subprocess.call(command) == 0:
-                print ("Finished Converting: %s" % (tif_file))
+                print ("Finished Converting: %s/%s" % (eye,tif_file))
 
