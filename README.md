@@ -1,4 +1,4 @@
-![](Images/cave.gif)
+![](https://github.com/NeuralVFX/basic_libtorch_dll/blob/master/coke.png)
 # Unreal-Omnidirectional-Stereo-Camera
 
 This plugin adds a new Camera Class to Unreal which can be used to render Omnidirectional Stereo Sequences. 
