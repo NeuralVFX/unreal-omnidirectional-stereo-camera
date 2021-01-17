@@ -1,5 +1,10 @@
 
 # Getting Started
+
+## Requirements:
+- Unreal Engine 4.20.3
+- PTStitcherNG 0.7b
+
 ## Project Setup
 
 - Make a C++ Unreal Project 
