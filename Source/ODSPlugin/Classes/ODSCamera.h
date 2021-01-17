@@ -80,25 +80,61 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 
 public:
-	/** Each Capture Component Added To The Array is Built Here */
+
+	/**
+	* Create Actor in the scene.
+	* @return Created Actor.
+	*/
+	virtual class AStaticMeshActor*  MakeActor();
+
+	/**
+	* Build an individual capture component with proper orientation and placement.
+	* @param YawStep - Count of current Yaw step, determines horizontal orientation.
+	* @param PitchStep - Count of current Pitch step, determines vertical orientation.
+	* @param Eye - Which eye this camera belongs to, "Left" or "Right", determines horizontal offset.
+	* @return Capture Component which was created.
+	*/
 	USceneCaptureComponent2D* BuildCaptureComponent(int32 YawStep, int32 PitchStep, FString Eye);
 
-	/** Renders An Individual Capture Component */
+	/** 
+	* Renders an individual capture component.
+	* @param YawStep - Count of current Yaw step, used in name of output png file.
+	* @param PitchStep - Count of current Pitch step, used in name of output png file.
+	* @param Eye - Which eye this camera belongs to, "Left" or "Right", used in name of output sticher text file. 
+	* @param CaptureComponent - A Capture component to render.
+	*/
 	void RenderComponent(int32 YawStep, int32 PitchStep, FString Eye, USceneCaptureComponent2D* CaptureComponent);
 
-	/** Write A Single Line Of PTStitcher TXT FIle */
+	/** 
+	* Uses step info and orientation from FRotator to create a single line of information formatted for PTStitcher.
+	* @param Rotation - Orientation of current render.
+	* @param YawStep - Count of current Yaw step, used in name of output sticher text file.
+	* @param PitchStep - Count of current Pitch step, used in name of output sticher text file.
+	* @return String containing single line of sticher file.
+	*/
 	FString WriteStitcherLine(FRotator Rotation, int32 YawStep, int32 PitchStep);
 
-	/** Write Entire PTStitcher TXT File */
+	/** 
+	* Write entire PTStitcher TXT file
+	* @param Eye - Whether to write left or right eye.
+	*/
 	void WriteStitcherFile(FString Eye);
 
-	/** Double Check That A Valid Seuquencer Is Selected */
+	/** 
+	* Double check that a valid sequencer is selected on the object.
+	* @return bool describing whether or not there is a valid Sequencer selected.
+	*/
 	bool CheckSequencer();
 
-	/** Populate CaptureComponentArray */
+	/** Loop through all Yaw and Pitch steps and create array of CaptureComponents */
 	void BuildCaptureArray();
 
-	/** Determine What Yaw And Pitch We Are At From The Step */
+	/** 
+	*  Determine What Yaw And Pitch We Are At From The Step.
+	* @param Step - Count of which step we are on.
+	* @param YawStep - The calculated count of current Yaw step.
+	* @param PitchStep - The calculated count of current Pitch step.
+	*/
 	void GetComponentSteps(int32 Step, int32& YawStep, int32& PitchStep);
 
 
