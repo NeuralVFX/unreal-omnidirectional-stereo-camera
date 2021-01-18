@@ -8,8 +8,9 @@
 #include "ODSCamera.generated.h"
 
 /**
- *
- */
+* Camera Actor designed to render Omnidirectional Stereo,
+* taking sequencer driven position and rotation into account.
+*/
 UCLASS()
 class ODSPLUGIN_API AODSCamera : public ACineCameraActor
 {
