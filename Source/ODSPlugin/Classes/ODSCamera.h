@@ -83,12 +83,6 @@ protected:
 public:
 
 	/**
-	* Create Actor in the scene.
-	* @return Created Actor.
-	*/
-	virtual class AStaticMeshActor*  MakeActor();
-
-	/**
 	* Build an individual capture component with proper orientation and placement.
 	* @param YawStep - Count of current Yaw step, determines horizontal orientation.
 	* @param PitchStep - Count of current Pitch step, determines vertical orientation.

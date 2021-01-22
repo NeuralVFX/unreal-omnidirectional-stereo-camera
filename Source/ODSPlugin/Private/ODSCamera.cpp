@@ -5,7 +5,7 @@
 #include "Engine/TextureRenderTarget2D.h"
 #include "Runtime/ImageWrapper/Public/IImageWrapper.h"
 #include "Runtime/ImageWrapper/Public/IImageWrapperModule.h"
-#include "ModuleManager.h"
+#include "Modules/ModuleManager.h"
 #include "Misc/FileHelper.h"
 #include "Kismet/GameplayStatics.h"
 #include "Runtime/LevelSequence/Public/LevelSequenceActor.h"
@@ -244,7 +244,7 @@ void AODSCamera::RenderComponent(int32 YawStep, int32 PitchStep, FString Eye, US
 
 	RenderTarget->ReadPixelsPtr(SnipImage.GetData(), FReadSurfaceDataFlags());
 	ImageWrapper->SetRaw(SnipImage.GetData(), SnipImage.GetAllocatedSize(), SnipResolution, SnipResolution, ERGBFormat::BGRA, 8);
-	const TArray<uint8>& PNGData = ImageWrapper->GetCompressed(100);
+	const TArray64<uint8> PNGData = ImageWrapper->GetCompressed(100);
 
 	// Write Output
 	FFileHelper::SaveArrayToFile(PNGData, *CaptureName);
