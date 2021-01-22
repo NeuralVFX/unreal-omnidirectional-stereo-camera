@@ -5,7 +5,13 @@
 - Unreal Engine 4.26
 - PTStitcherNG 0.7b
 
-## Project Setup
+## PTSticher Setup
+
+- Go to the [PTStitcher website](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG.html) and download StitcherNG: [download link](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG0.7b.zip) 
+- Download `PNG Utils`, which can be found on the [Sourceforge] (http://gnuwin32.sourceforge.net/packages/pngutils.htm)
+- Install both packages, and then copy `pngtopnm.exe` from `PNG Utils` into the `PTStitcher` directory
+
+## Unreal Project Setup
 
 - Make a C++ Unreal Project 
 - Make sure you have a `Plugins` folder inside of the project
@@ -48,7 +54,6 @@ o f0 w720 h720 n"RenderTest_002_001.00100.png" r180.000000 p144.000000 y72.00000
 
 ## Stitch A Panorama Sequence
 
-- Go to the [PTStitcher website](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG.html) and download StitcherNG: [download link](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG0.7b.zip) 
 - In order to convert the whole sequence into a panorama, find the script called `util/stitcher.py` and use it like so:
 ```
 cd util
