@@ -51,6 +51,7 @@ o f0 w720 h720 n"RenderTest_001_004.00100.png" r180.000000 p-108.000000 y36.0000
 o f0 w720 h720 n"RenderTest_002_000.00100.png" r180.000000 p108.000000 y72.000000 v50.000000
 o f0 w720 h720 n"RenderTest_002_001.00100.png" r180.000000 p144.000000 y72.000000 v50.000000
 ```
+# Stiching
 
 ## Stitch A Panorama Sequence
 
