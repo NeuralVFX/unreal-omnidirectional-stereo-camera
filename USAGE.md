@@ -2,7 +2,7 @@
 # Getting Started
 
 ## Requirements:
-- Unreal Engine 4.20.3
+- Unreal Engine 4.26
 - PTStitcherNG 0.7b
 
 ## Project Setup
