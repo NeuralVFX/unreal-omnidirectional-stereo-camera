@@ -8,7 +8,7 @@
 ## PTSticher Setup
 
 - Go to the [PTStitcher website](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG.html) and download `StitcherNG`: [download link](https://webuser.hs-furtwangen.de/~dersch/PTStitcherNG/PTStitcherNG0.7b.zip) 
-- Download `PNG Utils`:[download link](http://gnuwin32.sourceforge.net/packages/pngutils.htm)
+- Go to [SourceForge](http://gnuwin32.sourceforge.net/packages/pngutils.htm) and download `PNG Utils`:[download link](http://gnuwin32.sourceforge.net/downlinks/pngutils.php)
 - Install both packages, and then copy `pngtopnm.exe` from `PNG Utils` into the `PTStitcher` directory
 
 ## Unreal Project Setup
